@@ -16,5 +16,3 @@ func MakeString(from time.Time) (s string) {
 	syears := strconv.FormatFloat(years, 'f', -1, 64)
 	return string(syears)
 }
-
-//
