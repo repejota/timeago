@@ -1,12 +1,20 @@
-package main
+package timeago
 
-import "time"
-
-const (
-	// Day is the duratino of a day
-	Day time.Duration = time.Hour * 24
-	// Month is the duration of a month
-	Month time.Duration = Day * 30
-	// Year is the duration of a year
-	Year time.Duration = Day * 365
+import (
+	"fmt"
+	"strconv"
+	"time"
 )
+
+// MakeString returns the number of miliseconds since a given time
+func MakeString(from time.Time) (s string) {
+	duration := time.Now().Sub(from)
+	years := duration.Hours() / 24 / 365
+	if years > 1 {
+		fmt.Println("foooobar")
+	}
+	syears := strconv.FormatFloat(years, 'f', -1, 64)
+	return string(syears)
+}
+
+//
