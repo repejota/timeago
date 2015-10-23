@@ -1,17 +1,22 @@
 package timeago
 
 import (
-	"fmt"
 	"testing"
 	"time"
 )
 
-func TestDummy(t *testing.T) {
-
+func TestNow(t *testing.T) {
+	tm := time.Now()
+	s := TimeAgo(tm)
+	if s != "right now" {
+		t.Error("Expected: 'right now' but got ", s)
+	}
 }
 
-func TestMakeString(t *testing.T) {
-	from := time.Date(2009, time.November, 10, 23, 0, 0, 0, time.UTC)
-	str := MakeString(from)
-	fmt.Println(str)
+func TestFewSeconds(t *testing.T) {
+	ago := time.Unix(time.Now().Unix()-4, 0)
+	s := TimeAgo(ago)
+	if s != "few seconds ago" {
+		t.Error("Expected: 'few seconds ago' but got ", s)
+	}
 }
