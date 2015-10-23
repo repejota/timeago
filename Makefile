@@ -5,4 +5,4 @@ install:
 	go install
 
 test:
-	go test
+	go test -v
