@@ -20,3 +20,11 @@ func TestFewSeconds(t *testing.T) {
 		t.Error("Expected: 'few seconds ago' but got ", s)
 	}
 }
+
+func TestSeconds(t *testing.T) {
+	ago := time.Unix(time.Now().Unix()-15, 0)
+	s := TimeAgo(ago)
+	if s != "15 seconds ago" {
+		t.Error("Expected: '15 seconds ago' but got ", s)
+	}
+}
