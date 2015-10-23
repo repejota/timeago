@@ -60,3 +60,67 @@ func TestHours(t *testing.T) {
 		t.Error("Expected: '3 hours ago' but got ", s)
 	}
 }
+
+func TestDay(t *testing.T) {
+	ago := time.Now().AddDate(0, 0, -1).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "a day ago" {
+		t.Error("Expected: 'a day ago' but got ", s)
+	}
+}
+
+func TestDays(t *testing.T) {
+	ago := time.Now().AddDate(0, 0, -4).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "4 days ago" {
+		t.Error("Expected: '4 days ago' but got ", s)
+	}
+}
+
+func TestWeek(t *testing.T) {
+	ago := time.Now().AddDate(0, 0, -7).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "a week ago" {
+		t.Error("Expected: 'a week ago' but got ", s)
+	}
+}
+
+func TestWeeks(t *testing.T) {
+	ago := time.Now().AddDate(0, 0, -16).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "2 weeks ago" {
+		t.Error("Expected: '2 weeks ago' but got ", s)
+	}
+}
+
+func TestMonth(t *testing.T) {
+	ago := time.Now().AddDate(0, -1, 0).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "a month ago" {
+		t.Error("Expected: 'a month ago' but got ", s)
+	}
+}
+
+func TestMonths(t *testing.T) {
+	ago := time.Now().AddDate(0, -5, 0).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "5 months ago" {
+		t.Error("Expected: '5 months ago' but got ", s)
+	}
+}
+
+func TestYear(t *testing.T) {
+	ago := time.Now().AddDate(-1, 0, 0).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "a year ago" {
+		t.Error("Expected: 'a year ago' but got ", s)
+	}
+}
+
+func TestYears(t *testing.T) {
+	ago := time.Now().AddDate(-2, 0, 0).Add(-time.Second * 10)
+	s := TimeAgo(ago)
+	if s != "2 years ago" {
+		t.Error("Expected: '2 years ago' but got ", s)
+	}
+}
