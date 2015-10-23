@@ -44,3 +44,11 @@ func TestMinutes(t *testing.T) {
 		t.Error("Expected: '3 minutes ago' but got ", s)
 	}
 }
+
+func TestHours(t *testing.T) {
+	ago := time.Unix(time.Now().Unix()-180, 0)
+	s := TimeAgo(ago)
+	if s != "15 seconds ago" {
+		t.Error("Expected: '3 minutes ago' but got ", s)
+	}
+}
