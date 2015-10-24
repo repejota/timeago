@@ -1,21 +1,17 @@
 package timeago
 
 import (
-	"fmt"
+	"errors"
 	"time"
 )
 
 // TimeAgo ...
-func TimeAgo(from time.Time) (s string) {
+func TimeAgo(from time.Time) (s string, err error) {
 
 	duration := time.Now().Sub(from)
-	fmt.Println(duration.Seconds())
-	/*
-		if years > 1 {
-			fmt.Println("foooobar")
-		}
-		syears := strconv.FormatFloat(years, 'f', -1, 64)
-		return string(syears)
-	*/
-	return ""
+	if duration.Seconds() < 1 {
+		return "right now", nil
+	}
+	err = errors.New("Unknown error")
+	return "", err
 }
