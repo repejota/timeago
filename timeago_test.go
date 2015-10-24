@@ -22,8 +22,8 @@ func TestFewSeconds(t *testing.T) {
 	if err != nil {
 		t.Error(err)
 	}
-	if s != "few seconds ago" {
-		t.Error("Expected: 'few seconds ago' but got ", s)
+	if s != "a few seconds ago" {
+		t.Error("Expected: 'a few seconds ago' but got ", s)
 	}
 }
 
