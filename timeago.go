@@ -25,31 +25,32 @@ import (
 
 // TimeAgo ...
 type TimeAgo struct {
-	duration time.Duration
+	time.Duration
 }
 
 // NewTimeAgo ...
 func NewTimeAgo(from time.Time) *TimeAgo {
-	timeago := &TimeAgo{}
-	timeago.duration = time.Now().Sub(from)
-	return timeago
+	var timeago TimeAgo
+	timeago.Duration = time.Now().Sub(from)
+	return &timeago
 }
 
 // Render ...
 func (t *TimeAgo) Render() (string, error) {
+
 	// right now
-	if t.duration.Seconds() < 1 {
+	if t.Duration.Seconds() < 1 {
 		return "right now", nil
 	}
 
 	// a few seconds ago
-	if t.duration.Seconds() < 15 {
+	if t.Duration.Seconds() < 15 {
 		return "a few seconds ago", nil
 	}
 
 	// x seconds ago
-	if t.duration.Seconds() < 60 {
-		return strconv.Itoa(int(t.duration.Seconds())) + " seconds ago", nil
+	if t.Duration.Seconds() < 60 {
+		return strconv.Itoa(int(t.Duration.Seconds())) + " seconds ago", nil
 	}
 
 	// unknown error
