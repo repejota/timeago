@@ -22,12 +22,13 @@ import (
 	"time"
 )
 
-// TimeAgo ...
+// TimeAgo type represents the amount of time passed since an specific moment
+// in time
 type TimeAgo struct {
 	time.Duration
 }
 
-// From ...
+// From sets the initial time of the TimeAgo type
 func (t *TimeAgo) From(from *time.Time) *TimeAgo {
 	t.Duration = time.Now().Sub(*from)
 	return t
