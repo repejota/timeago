@@ -31,6 +31,14 @@ func TestInstance(t *testing.T) {
 	var _ timeago.TimeAgo
 }
 
+func TestString(t *testing.T) {
+	var tago timeago.TimeAgo
+	expected := "0s"
+	if tago.String() != expected {
+		t.Errorf("Expected %q but got %q", tago.String(), expected)
+	}
+}
+
 /*
 func TestNow(t *testing.T) {
 	tm := time.Now()

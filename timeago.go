@@ -18,7 +18,6 @@
 package timeago
 
 import (
-	"errors"
 	"time"
 )
 
@@ -55,6 +54,5 @@ func (t *TimeAgo) String() string {
 	*/
 
 	// unknown error
-	err := errors.New("Unknown error")
-	return err.Error()
+	return t.Duration.String()
 }
