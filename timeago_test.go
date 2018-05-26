@@ -33,8 +33,32 @@ func TestInstance(t *testing.T) {
 
 func TestString(t *testing.T) {
 	var tago timeago.TimeAgo
-	expected := "0s"
+	expected := "right now"
 	if tago.String() != expected {
 		t.Errorf("Expected %q but got %q", tago.String(), expected)
+	}
+}
+
+func TestSeconds(t *testing.T) {
+	var tago timeago.TimeAgo
+	expected := 0.0
+	if tago.Seconds() != expected {
+		t.Errorf("Expected %f but got %f", tago.Seconds(), expected)
+	}
+}
+
+func TestMinutes(t *testing.T) {
+	var tago timeago.TimeAgo
+	expected := 0.0
+	if tago.Minutes() != expected {
+		t.Errorf("Expected %f but got %f", tago.Seconds(), expected)
+	}
+}
+
+func TestHours(t *testing.T) {
+	var tago timeago.TimeAgo
+	expected := 0.0
+	if tago.Hours() != expected {
+		t.Errorf("Expected %f but got %f", tago.Seconds(), expected)
 	}
 }
