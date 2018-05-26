@@ -19,6 +19,7 @@ package timeago_test
 
 import (
 	"testing"
+	"time"
 
 	"github.com/repejota/timeago"
 )
@@ -60,5 +61,17 @@ func TestHours(t *testing.T) {
 	expected := 0.0
 	if tago.Hours() != expected {
 		t.Errorf("Expected %f but got %f", tago.Seconds(), expected)
+	}
+}
+
+func TestFewSecondsAgo(t *testing.T) {
+	// 4 seconds ago
+	ago := time.Now().Add(-time.Second * 4)
+
+	var tago timeago.TimeAgo
+	tago.Since(ago)
+	expected := "a few seconds ago"
+	if tago.String() != expected {
+		t.Errorf("Expected %q but got %q", tago.String(), expected)
 	}
 }

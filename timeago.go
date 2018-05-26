@@ -28,8 +28,8 @@ type TimeAgo struct {
 }
 
 // Since sets the initial time of the TimeAgo type
-func (t *TimeAgo) Since(from *time.Time) *TimeAgo {
-	t.Duration = time.Now().Sub(*from)
+func (t *TimeAgo) Since(from time.Time) *TimeAgo {
+	t.Duration = time.Now().Sub(from)
 	return t
 }
 
@@ -41,11 +41,11 @@ func (t *TimeAgo) String() string {
 		return "right now"
 	}
 
+	// a few seconds ago
+	if t.Duration.Seconds() < 15 {
+		return "a few seconds ago"
+	}
 	/*
-		// a few seconds ago
-		if t.Duration.Seconds() < 15 {
-			return "a few seconds ago", nil
-		}
 
 		// x seconds ago
 		if t.Duration.Seconds() < 60 {
