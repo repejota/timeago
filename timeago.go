@@ -19,7 +19,6 @@ package timeago
 
 import (
 	"errors"
-	"strconv"
 	"time"
 )
 
@@ -28,33 +27,33 @@ type TimeAgo struct {
 	time.Duration
 }
 
-// NewTimeAgo ...
-func NewTimeAgo(from time.Time) *TimeAgo {
-	var timeago TimeAgo
-	timeago.Duration = time.Now().Sub(from)
-	return &timeago
+// From ...
+func (t *TimeAgo) From(from *time.Time) *TimeAgo {
+	t.Duration = time.Now().Sub(*from)
+	return t
 }
 
-// Render ...
-func (t *TimeAgo) Render() (string, error) {
+// String implements the Stringer interface for this type
+func (t *TimeAgo) String() string {
 
-	// right now
-	if t.Duration.Seconds() < 1 {
-		return "right now", nil
-	}
+	/*
+		// right now
+		if t.Duration.Seconds() < 1 {
+			return "right now", nil
+		}
 
-	// a few seconds ago
-	if t.Duration.Seconds() < 15 {
-		return "a few seconds ago", nil
-	}
+		// a few seconds ago
+		if t.Duration.Seconds() < 15 {
+			return "a few seconds ago", nil
+		}
 
-	// x seconds ago
-	if t.Duration.Seconds() < 60 {
-		return strconv.Itoa(int(t.Duration.Seconds())) + " seconds ago", nil
-	}
+		// x seconds ago
+		if t.Duration.Seconds() < 60 {
+			return strconv.Itoa(int(t.Duration.Seconds())) + " seconds ago", nil
+		}
+	*/
 
 	// unknown error
 	err := errors.New("Unknown error")
-
-	return err.Error(), err
+	return err.Error()
 }

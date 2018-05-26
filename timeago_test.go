@@ -15,11 +15,12 @@
 // License for the specific language governing permissions and limitations
 // under the License.
 
-package timeago
+package timeago_test
 
 import (
 	"testing"
-	"time"
+
+	"github.com/repejota/timeago"
 )
 
 func TestDummy(t *testing.T) {
@@ -27,12 +28,7 @@ func TestDummy(t *testing.T) {
 }
 
 func TestInstance(t *testing.T) {
-	tm := time.Now()
-	timeago := NewTimeAgo(tm)
-	_, err := timeago.Render()
-	if err != nil {
-		t.Error(err)
-	}
+	var _ timeago.TimeAgo
 }
 
 /*
