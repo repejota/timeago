@@ -46,13 +46,6 @@ func (t *TimeAgo) String() string {
 		return "few seconds ago"
 	}
 
-	/*
-		// x seconds ago
-		if t.Duration.Seconds() < 60 {
-			return strconv.Itoa(int(t.Duration.Seconds())) + " seconds ago", nil
-		}
-	*/
-
 	// unknown error
-	return t.Duration.String()
+	return "long time ago"
 }

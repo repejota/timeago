@@ -64,6 +64,18 @@ func TestHours(t *testing.T) {
 	}
 }
 
+func TestRightNow(t *testing.T) {
+	// 4 seconds ago
+	ago := time.Now()
+
+	var tago timeago.TimeAgo
+	tago.Since(ago)
+	expected := "right now"
+	if tago.String() != expected {
+		t.Errorf("Expected %q but got %q", tago.String(), expected)
+	}
+}
+
 func TestFewSecondsAgo(t *testing.T) {
 	// 4 seconds ago
 	ago := time.Now().Add(-time.Second * 4)
@@ -71,6 +83,18 @@ func TestFewSecondsAgo(t *testing.T) {
 	var tago timeago.TimeAgo
 	tago.Since(ago)
 	expected := "few seconds ago"
+	if tago.String() != expected {
+		t.Errorf("Expected %q but got %q", tago.String(), expected)
+	}
+}
+
+func TestLongTimeAgo(t *testing.T) {
+	// 4 seconds ago
+	ago := time.Now().Add(-time.Hour * 503675)
+
+	var tago timeago.TimeAgo
+	tago.Since(ago)
+	expected := "long time ago"
 	if tago.String() != expected {
 		t.Errorf("Expected %q but got %q", tago.String(), expected)
 	}

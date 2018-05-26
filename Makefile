@@ -55,6 +55,7 @@ deps:			## Install package dependencies
 
 	
 dev-deps:		## Install dev dependencies
+	go get -u github.com/smartystreets/goconvey
 	go get -u github.com/mattn/goveralls
 	go get -u github.com/inconshreveable/mousetrap
 	go get -u github.com/alecthomas/gometalinter
