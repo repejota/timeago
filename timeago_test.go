@@ -70,7 +70,7 @@ func TestFewSecondsAgo(t *testing.T) {
 
 	var tago timeago.TimeAgo
 	tago.Since(ago)
-	expected := "a few seconds ago"
+	expected := "few seconds ago"
 	if tago.String() != expected {
 		t.Errorf("Expected %q but got %q", tago.String(), expected)
 	}
