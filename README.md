@@ -3,6 +3,8 @@
 Go package for time formatting based on current time (eg: "3 hours ago" or "1
 day ago").
 
+Godoc reference: [github.com/repejota/timeago](https://godoc.org/github.com/repejota/timeago)
+
 ## Badges
 
 [![License][License-Image]][License-Url]
